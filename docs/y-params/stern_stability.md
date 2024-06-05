@@ -1,5 +1,7 @@
 # Stern Stability Factor from Y-Parameters
 
+> Ref: RF Circuit Design 2nd Edition by Chris Bowick
+
 $$
 K = \frac{2(g_i + G_S)(g_o + G_L)}{|y_r y_f| + Re(y_r y_f)}
 $$
