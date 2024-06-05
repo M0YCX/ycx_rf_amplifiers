@@ -1,0 +1,14 @@
+[project]
+name = "ycx_rf_amplifiers"
+version = "0.1"
+authors = [
+    { name="Graham Bevan [M0YCX]" },
+]
+description = "A Python library for various studies in designing RF Amplifiers - for Amateur Radio projects"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
