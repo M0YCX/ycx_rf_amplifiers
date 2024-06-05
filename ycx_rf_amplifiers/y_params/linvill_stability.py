@@ -2,7 +2,7 @@ from ycx_complex_numbers import Complex, Y
 
 def calc_linvill_stability(yi=None, yo=None, yf=None, yr=None):
     """
-    Calculate the stability factor for an RF Amplifier
+    Calculate the Linvill stability factor for a biased transistor
 
     Args:
         yi (Complex): Input Admittance
@@ -11,7 +11,7 @@ def calc_linvill_stability(yi=None, yo=None, yf=None, yr=None):
         yr (Complex): Reverse-Transfer Admittance
 
     Returns:
-        float: The stability factor.
+        float: The stability factor (C). C<1 is stable.
     """
     for p in (yi, yo, yf, yr):
         if not isinstance(p, Y):
