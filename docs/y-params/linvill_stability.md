@@ -13,3 +13,5 @@ where:
 * $g_i$ is the input conductance
 * $g_o$ is the output conductance
 * $Re()$ is the real part of the complex product in parenthesis
+
+When $C$ is less than 1, the transistor is unconditionally stable...
