@@ -22,8 +22,10 @@ $\pm$ is
 * if $B_1$ is negative, use $+$
 * if $B_1$ is positive, use $-$
 
+/*
 ## Maximum Stable Gain (MSG)
 
 $$
 G_T < 10 log \bigg|\frac{S_{21}}{S_{12}}\bigg|
 $$
+*/
