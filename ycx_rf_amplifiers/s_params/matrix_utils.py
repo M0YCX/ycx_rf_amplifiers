@@ -1,12 +1,8 @@
 from ycx_complex_numbers import S
-from ycx_rf_amplifiers.s_params import (
-    calc_determinant_of_S_matrix,
-)
 
-
-def calc_rollett_stability(s11=None, s22=None, s21=None, s12=None):
+def calc_determinant_of_S_matrix(s11=None, s22=None, s21=None, s12=None):
     """
-    Calculate the Rollett stability factor for a biased transistor
+    Calculate the determinant of the S-matrix
 
     Args:
         s11 (Complex): Forward Reflection coefficient of port 1
@@ -15,14 +11,12 @@ def calc_rollett_stability(s11=None, s22=None, s21=None, s12=None):
         s12 (Complex): Reverse Transmission coefficient from port 2 to port 1
 
     Returns:
-        float: The Rollett stability factor (K). K>1 is unconditionally stable.
+        float: Determinant of the S-matrix
     """
     for p in (s11, s22, s21, s12):
         if not isinstance(p, S):
             raise TypeError("All inputs must be type S Complex number instances")
 
-    Ds = calc_determinant_of_S_matrix(s11, s22, s21, s12)
+    Ds = (s11 * s22) - (s12 * s21)
 
-    K = (1 + abs(Ds) ** 2 - abs(s11) ** 2 - abs(s22) ** 2) / (2 * abs(s21) * abs(s12))
-
-    return K
+    return Ds

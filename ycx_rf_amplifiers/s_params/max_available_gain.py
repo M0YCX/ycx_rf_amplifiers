@@ -1,6 +1,9 @@
 import math
 from ycx_complex_numbers import Complex, S
-from ycx_rf_amplifiers.s_params import calc_rollett_stability
+from ycx_rf_amplifiers.s_params import (
+    calc_rollett_stability,
+    calc_determinant_of_S_matrix,
+)
 
 
 def s_max_available_gain_db(s11=None, s22=None, s21=None, s12=None):
@@ -20,7 +23,7 @@ def s_max_available_gain_db(s11=None, s22=None, s21=None, s12=None):
         if not isinstance(p, S):
             raise TypeError("All inputs must be type S Complex number instances")
 
-    Ds = s11 * s22 - s12 * s21
+    Ds = calc_determinant_of_S_matrix(s11, s22, s21, s12)
 
     K = calc_rollett_stability(s11, s22, s21, s12)
     if K > 1:
