@@ -38,18 +38,22 @@ def calc_simultaneous_conjugate_match(s11=None, s22=None, s21=None, s12=None):
     gammaS_conjugate = s11 + (s12 * s21 * gammaL) / Complex(1 - (gammaL * s22).c)
     gammaS = gammaS_conjugate.conjugate
 
+    # fmt: off
     GT = (
-        abs(s21) ** 2
-        * (1 - abs(gammaS) ** 2)
-        * (1 - abs(gammaL) ** 2)
-        / (
+        (
+            abs(s21) ** 2
+            * (1 - abs(gammaS) ** 2)
+            * (1 - abs(gammaL) ** 2)
+        ) / (
             abs(
-                Complex(1 - s11.c * gammaS.c) * Complex(1 - s22.c * gammaL.c)
+                Complex(1 - s11.c * gammaS.c)
+                * Complex(1 - s22.c * gammaL.c)
                 - s12 * s21 * gammaL * gammaS
             )
             ** 2
         )
     )
+    # fmt: on
     GT_db = 10 * math.log10(GT)
 
     IFG_db = 10 * math.log10(abs(s21) ** 2)
