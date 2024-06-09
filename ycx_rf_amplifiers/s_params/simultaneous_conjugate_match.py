@@ -59,6 +59,10 @@ def calc_simultaneous_conjugate_match(s11=None, s22=None, s21=None, s12=None):
     IFG_db = 10 * math.log10(abs(s21) ** 2)
 
     return {
+        "s11": s11,
+        "s22": s22,
+        "s21": s21,
+        "s12": s12,
         "Ds": Ds,
         "K": K,
         "transducer_gain_db": GT_db,
