@@ -7,6 +7,7 @@
 Simultaneous Conjugate Match for maximum power transfer from Source to Load:
 
 Source:
+
 $$
 G_S = \frac{\sqrt{[2 g_i g_o - Re(y_f y_r)]^2 - |y_f y_r|^2}}{2 g_o}
 $$
@@ -16,6 +17,7 @@ B_S = -jb_i + \frac{Im(y_f y_r)}{2 g_o}
 $$
 
 Load:
+
 $$
 G_L = \frac{\sqrt{[2 g_i g_o - Re(y_f y_r)]^2 - |y_f y_r|^2}}{2 g_i} = \frac{G_S g_o}{g_i}
 $$
