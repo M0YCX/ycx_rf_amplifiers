@@ -28,13 +28,11 @@ def calc_simultaneous_conjugate_match(yi=None, yo=None, yf=None, yr=None):
     go = yo.real
     bo = yo.imag
 
-    # Linvill Stability
     C = calc_linvill_stability(yi, yo, yf, yr)
 
     if C >= 1:
         raise ValueError("Failed Linvill Stability Test")
 
-    # MAG
     mag_db = y_max_available_gain_db(yi, yo, yf)
 
     # Simultaneous Conjugate Match:-
@@ -46,12 +44,6 @@ def calc_simultaneous_conjugate_match(yi=None, yo=None, yf=None, yr=None):
 
     YS = Y(GS + BS.imag * 1j)
 
-    # ZS = 1 / (YS / 1000)
-
-    # tYS = Y(GS, -BS.imag)
-
-    # tZS = 1 / (tYS / 1000)
-
     # Load:
     GL = (GS * go) / gi
 
@@ -59,11 +51,7 @@ def calc_simultaneous_conjugate_match(yi=None, yo=None, yf=None, yr=None):
 
     YL = Y(GL + BL.imag * 1j)
 
-    # ZL = 1 / (YL / 1000)
-
     tYL = complex(GL, -BL.imag)
-
-    # tZL = 1 / (tYL / 1000)
 
     # Transducer Gain
     # fmt: off

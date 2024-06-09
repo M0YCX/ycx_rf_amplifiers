@@ -3,13 +3,9 @@ from ycx_rf_amplifiers.y_params import calc_simultaneous_conjugate_match
 
 
 def test_good_inputs():
-    # input admittance:
     yi = Y(8 + 5.7j)
-    # output admittance:
     yo = Y(0.4 + 1.5j)
-    # forward-transfer admittance:
     yf = Y(52 - 20j)
-    # reverse-transfer admittance:
     yr = Y(0.01 - 0.1j)
 
     cj = calc_simultaneous_conjugate_match(yi, yo, yf, yr)
