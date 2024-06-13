@@ -1,7 +1,7 @@
 import math
 import numpy as np
 
-from ycx_complex_numbers import Complex, S
+from ycx_complex_numbers import Complex, ReflCoef, S
 from ycx_rf_amplifiers.s_params import (
     calc_determinant_of_S_matrix,
     calc_rollett_stability,
@@ -33,9 +33,9 @@ def calc_simultaneous_conjugate_match(s11=None, s22=None, s21=None, s12=None):
     else:
         b_calc = B2 - math.sqrt(B2**2 - 4 * abs(C2) ** 2)
     maggammaL = b_calc / (2 * abs(C2))
-    gammaL = Complex().from_polar(maggammaL, -C2.as_polar()["angle"])
+    gammaL = ReflCoef().from_polar(maggammaL, -C2.as_polar()["angle"])
 
-    gammaS_conjugate = s11 + (s12 * s21 * gammaL) / Complex(1 - (gammaL * s22).c)
+    gammaS_conjugate = ReflCoef(s11 + (s12 * s21 * gammaL) / (1 - (gammaL * s22)))
     gammaS = gammaS_conjugate.conjugate
 
     # fmt: off
@@ -46,8 +46,8 @@ def calc_simultaneous_conjugate_match(s11=None, s22=None, s21=None, s12=None):
             * (1 - abs(gammaL) ** 2)
         ) / (
             abs(
-                Complex(1 - s11.c * gammaS.c)
-                * Complex(1 - s22.c * gammaL.c)
+                (1 - s11 * gammaS)
+                * (1 - s22 * gammaL)
                 - s12 * s21 * gammaL * gammaS
             )
             ** 2
