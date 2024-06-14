@@ -30,7 +30,13 @@ def calc_simultaneous_conjugate_match(yi=None, yo=None, yf=None, yr=None):
 
     C = calc_linvill_stability(yi, yo, yf, yr)
     if C >= 1:
-        raise ValueError("Failed Linvill Stability Test")
+        return {
+        "yi": yi,
+        "yo": yo,
+        "yf": yf,
+        "yr": yr,
+        "linvill_test": C,
+    }
 
     mag_db = y_max_available_gain_db(yi, yo, yf)
 

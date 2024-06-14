@@ -20,7 +20,13 @@ def calc_simultaneous_conjugate_match(s11=None, s22=None, s21=None, s12=None):
     K = calc_rollett_stability(s11, s22, s21, s12)
 
     if K <= 1:
-        raise ValueError("K must be greater than 1")
+        return {
+        "s11": s11,
+        "s22": s22,
+        "s21": s21,
+        "s12": s12,
+        "K": K,
+    }
 
     MAG_db = s_max_available_gain_db(s11, s22, s21, s12)
 
