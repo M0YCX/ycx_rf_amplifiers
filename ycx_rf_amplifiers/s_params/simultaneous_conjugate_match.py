@@ -25,6 +25,7 @@ def calc_simultaneous_conjugate_match(s11=None, s22=None, s21=None, s12=None):
         "s22": s22,
         "s21": s21,
         "s12": s12,
+        "Ds": Ds,
         "K": K,
     }
 
