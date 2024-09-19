@@ -20,3 +20,6 @@ def calc_linvill_stability(yi=None, yo=None, yf=None, yr=None):
     C = abs(yf.c * yr.c) / (2 * yi.real * yo.real - (yf.c * yr.c).real)
 
     return C
+
+def calc_linvill_stability2(y11=None, y12=None, y21=None, y22=None):
+    return calc_linvill_stability(yi=y11, yr=y12, yf=y21, yo=y22)

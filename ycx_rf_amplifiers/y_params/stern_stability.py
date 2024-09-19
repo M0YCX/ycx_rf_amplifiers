@@ -25,3 +25,6 @@ def calc_stern_stability(yi=None, yo=None, yf=None, yr=None, GS=None, GL=None):
     K = (2 * (gi + GS) * (go + GL)) / (abs(yr.c * yf.c) + (yr.c * yf.c).real)
 
     return K
+
+def calc_stern_stability2(y11=None, y12=None, y21=None, y22=None, GS=None, GL=None):
+    return calc_stern_stability(yi=y11, yr=y12, yf=y21, yo=y22, GS=GS, GL=GL)

@@ -1,5 +1,5 @@
 from ycx_complex_numbers import Y, Z
-from ycx_rf_amplifiers.y_params import calc_stern_stability
+from ycx_rf_amplifiers.y_params import calc_stern_stability, calc_stern_stability2
 
 
 def test_good_inputs():
@@ -10,6 +10,9 @@ def test_good_inputs():
 
     K = round(calc_stern_stability(yi, yo, yf, yr, 50, 50), 0)
     assert K == 4845
+
+    K2 = round(calc_stern_stability2(y11=yi, y12=yr, y21=yf, y22=yo, GS=50, GL=50), 0)
+    assert K2 == 4845
 
 
 def test_bad_inputs():

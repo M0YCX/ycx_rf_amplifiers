@@ -1,5 +1,5 @@
 from ycx_complex_numbers import Y, Z
-from ycx_rf_amplifiers.y_params import calc_linvill_stability
+from ycx_rf_amplifiers.y_params import calc_linvill_stability, calc_linvill_stability2
 
 
 def test_good_inputs():
@@ -10,6 +10,9 @@ def test_good_inputs():
 
     C = round(calc_linvill_stability(yi, yo, yf, yr), 2)
     assert C == 0.48
+
+    C2 = round(calc_linvill_stability2(y11=yi, y12=yr, y21=yf, y22=yo), 2)
+    assert C2 == 0.48
 
 def test_bad_inputs():
     yi = Z(14 + 1j)
