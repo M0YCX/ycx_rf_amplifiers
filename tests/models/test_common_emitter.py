@@ -11,24 +11,17 @@ class TestHybridPi:
             "Rbp": 10.0,
             "Ccb": 5.0 * 10**-12,
             "Ie": 10.0 * 10**3,
-            "Re": 6.8,
-            "Le": 10.0 * 10**-9,
             "FT": 300.0 * 10**6,
         }
 
     def test_hybrid_pi(self, t1):
-        print(f"t1={t1}")
-
         hpi = HybridPi(**t1)
-        print(f"hpi={hpi}")
-
         y = hpi.calc(F=10.00 * 10**6)
-        print(f"y={y}")
 
         yexpected = NetY(
-            y11=0.00151 + 0.00359j,
-            y12=-0.00001 - 0.00031j,
-            y21=0.10256 - 0.01436j,
-            y22=0.00005 + 0.00064j,
+            y11=0.00549 + 0.01167j,
+            y12=-0.00004 - 0.00030j,
+            y21=0.35800 - 0.05655j,
+            y22=0.00018 + 0.00144j,
         )
         assert y.equals(yexpected, precision=5)
